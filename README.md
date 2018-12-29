@@ -3,7 +3,8 @@
 IntelliJ IDEA Plugin for Code Push in GitHub and Bitbucket
 ==========================================================================================
 
-Introduction============
+Introduction
+============
 **Git Pusher** is an IDEA plugin which helps in pushing the complete codebase or code snippet directly to GitHub or Bitbucket. This plugin does not provide any git functionality, it only provides a easy way to keep the code in GitHub or Bitbucket for future references. Many times, developers write good code and code goes into lost world after some time. This plugin will help you to save and share your code in GitHub and Bitbucket.
 
 
