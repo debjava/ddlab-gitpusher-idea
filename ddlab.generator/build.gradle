@@ -1,0 +1,15 @@
+plugins {
+    id 'java'
+}
+
+group 'ddlab.generator'
+version '1.0.0'
+sourceCompatibility = 1.8
+
+dependencies {
+    implementation('commons-io:commons-io:2.6')
+}
+
+jar {
+    enabled = true
+}

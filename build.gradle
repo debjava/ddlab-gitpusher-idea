@@ -1,0 +1,97 @@
+plugins {
+    id 'java'
+    id 'org.jetbrains.intellij' version '0.4.0'
+}
+
+group 'ddlab-gitpusher-idea'
+version '1.0.0'
+sourceCompatibility = 1.8
+
+allprojects {
+    group 'ddlab-gitpusher-idea'
+    version '1.0.0'
+    sourceCompatibility = 1.8
+
+    apply plugin: "java"
+    apply plugin: "idea"
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        testCompile group: 'junit', name: 'junit', version: '4.12'
+    }
+}
+
+dependencies {
+    compile project(':ddlab.generator')
+    compile project(':ddlab.gitpusher.core')
+}
+
+intellij {
+    version '2018.2.4'
+    intellij.updateSinceUntilBuild false
+}
+patchPluginXml {
+    changeNotes """
+        <p>1.0.0</p>
+        <li>Initial version added for IntelliJ IDEA 2018.2.* </li>
+     """
+}
+
+//patchPluginXml {
+//    changeNotes """
+//      Add change notes here.<br>
+//      <strong>Strong text</strong>
+//      <em>most HTML tags may be used</em>"""
+//}
+
+
+clean {
+    println "---------- DELETING ----------->${rootDir}/latest"
+    delete fileTree("${rootDir}/latest").matching {
+        include "**/*.*"
+    }
+}
+
+//copy {
+//    println "---------- COPYING FILE -----------"
+//    from 'build/distributions'
+//    into 'latest'
+//    include '**/*.*'
+//
+//}
+
+
+//task deploy (dependsOn: war) {
+//    doLast {
+//        println('I am the last BOSS ....')
+//    }
+//}
+
+
+//task copyToLatest(type: Copy) {
+//    println "---------- COPYING FILE -----------"
+//    from 'build/distributions'
+//    into 'latest'
+//    include '**/*.*'
+//}
+
+//task myTask(dependsOn: build, type: Copy) {
+//    println("~~~~~~~~~~~~~~~~~~~~~~")
+//    from 'build/distributions'
+//    into 'latest'
+//    include '**/*.*'
+//}
+
+task latest {
+    doLast {
+        println 'Idea plugin zip file will be available in latest directory.'
+        copy {
+            from 'build/distributions'
+            into 'latest'
+            include '**/*.*'
+        }
+    }
+}
