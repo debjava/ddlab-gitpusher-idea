@@ -1,5 +1,13 @@
+/*
+ * Copyright 2018 Tornado Project from DDLAB Inc. or its subsidiaries. All Rights Reserved.
+ */
 package com.ddlab.tornado.common;
 
+/**
+ * The type Common constants.
+ *
+ * @author Debadatta Mishra
+ */
 public class CommonConstants {
 
   /** The Constant GIT_ACCOUNTS. */
@@ -20,6 +28,7 @@ public class CommonConstants {
   /** The Constant REPO_BTN_TOOL_TIP_TXT. */
   public static final String REPO_BTN_TOOL_TIP_TXT = "Click to see the list of repositories";
 
+  /** The constant GIST_BTN_TOOL_TIP_TXT. */
   public static final String GIST_BTN_TOOL_TIP_TXT = "Click to see the list of code snippets";
 
   /** The Constant REPO_BTN_TXT. */
@@ -44,36 +53,53 @@ public class CommonConstants {
   /** The Constant GIST_NOT_EMPTY_TXT. */
   public static final String GIST_NOT_EMPTY_TXT = "Gist description cannot be empty";
 
+  /** The constant PROJECT_MENU_TXT. */
   public static final String PROJECT_MENU_TXT = "Push to GitHub/Bitbucket";
 
+  /** The constant PROJECT_MENU_DESC. */
   public static final String PROJECT_MENU_DESC = "Push to GitHub/Bitbucket";
 
+  /** The constant CODE_MENU_TXT. */
   public static final String CODE_MENU_TXT = "Share code in GitHub/Bitbucket";
 
+  /** The constant CODE_MENU_DESC. */
   public static final String CODE_MENU_DESC = "Share code in GitHub/Bitbucket";
 
+  /** The constant FETCH_GIST_MSG. */
   public static final String FETCH_GIST_MSG = "Fetching Snippets";
 
+  /** The constant FETCH_REPO_MSG. */
   public static final String FETCH_REPO_MSG = "Fetching Repositories";
 
+  /** The constant CREATE_GIST_MSG. */
   public static final String CREATE_GIST_MSG = "Creating Snippet";
 
+  /** The constant CREATE_REPO_MSG. */
   public static final String CREATE_REPO_MSG = "Creating Repository";
 
+  /** The constant NO_GIST_AVL_MSG. */
   public static final String NO_GIST_AVL_MSG =
       "There are no Gist/Snippets available in your account, create a new one.";
 
+  /** The constant NO_REPO_AVL_MSG. */
   public static final String NO_REPO_AVL_MSG =
       "There are no repository available in your account, create a new one.";
 
+  /** The constant SUCCESSFUL_GIST_CREATE_MSG. */
   public static final String SUCCESSFUL_GIST_CREATE_MSG = "Snippet created successfully...";
 
+  /** The constant SUCCESSFUL_REPO_CREATE_MSG. */
   public static final String SUCCESSFUL_REPO_CREATE_MSG = "Repositoryt created successfully...";
 
+  /** The constant GEN_GITIGNORE_MSG. */
   public static final String GEN_GITIGNORE_MSG = "Generating .gitignore file";
 
+  /** The constant GEN_README_MSG. */
   public static final String GEN_README_MSG = "Generating .README.md file";
 
+  /** The constant PUSH_MSG. */
   public static final String PUSH_MSG = "Pushing code to your Git account";
+
+  /** The constant COMPLETE_OPRNS_MSG. */
   public static final String COMPLETE_OPRNS_MSG = "Completing all operations and finalizing.";
 }

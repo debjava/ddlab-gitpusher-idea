@@ -4,8 +4,6 @@
     <version>1.0.0</version>
     <vendor email="deba.java@gmail.com" url="https://about.me/debadattamishra">DDLAB INC</vendor>
 
-    <!--<description>Git Pusher is an eclipse plugin which helps in pushing the complete code or code snippet directly to GitHub or Bitbucket.</description>-->
-
     <description>
         <![CDATA[
           Git Pusher is an IntelliJ IDEA plugin which helps in pushing the complete Codebase or code snippet directly to GitHub or Bitbucket.
@@ -19,13 +17,10 @@
           </ul>
           <p>License</p>
           <p>&nbsp;&copy;&nbsp;Copyright 2018 Debadatta Mishra(PIKU)</p>
-          <p>Free and Open Souce licensed under the Apache License, Version 2.0.</p>
+          <p>Free and Open Source licensed under the Apache License, Version 2.0.</p>
           <br>
         ]]>
     </description>
-
-    <!--<change-notes>This is the initial version.This plugin helps in pushing code directly to GitHub or Bitbucket
-    </change-notes>-->
 
     <change-notes>
         <![CDATA[
@@ -34,17 +29,9 @@
         ]]>
     </change-notes>
 
-    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
     <idea-version since-build="173.0"/>
 
-    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
-         on how to target different products -->
-    <!-- uncomment to enable plugin in all products
-    <depends>com.intellij.modules.lang</depends>
-    -->
-
     <extensions defaultExtensionNs="com.intellij">
-        <!-- Add your extensions here -->
 
     </extensions>
 

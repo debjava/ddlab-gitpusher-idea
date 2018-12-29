@@ -1,3 +1,6 @@
+/*
+ * Copyright 2018 Tornado Project from DDLAB Inc. or its subsidiaries. All Rights Reserved.
+ */
 package com.ddlab.tornado.common;
 
 import com.ddlab.generator.IGitIgnoreGen;
@@ -23,8 +26,18 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+/**
+ * The type Ui util.
+ *
+ * @author Debadatta Mishra
+ */
 public class UIUtil {
 
+  /**
+   * Gets panel layout.
+   *
+   * @return the panel layout
+   */
   public static GridBagLayout getPanelLayout() {
     GridBagLayout gridBagLayout = new GridBagLayout();
     gridBagLayout.columnWidths = new int[] {0, 0, 0};
@@ -34,6 +47,13 @@ public class UIUtil {
     return gridBagLayout;
   }
 
+  /**
+   * Gets the Balloon builder object for creating a balloon.
+   *
+   * @param msgType
+   * @param msg
+   * @return
+   */
   private static BalloonBuilder getBalloonBuilder(MessageType msgType, String msg) {
     return JBPopupFactory.getInstance()
         .createHtmlTextBalloonBuilder(msg, msgType, null)
@@ -42,6 +62,14 @@ public class UIUtil {
         .setHideOnAction(true);
   }
 
+  /**
+   * Gets the Balloon
+   *
+   * @param msgType
+   * @param msg
+   * @param isAutoDisposable
+   * @return
+   */
   private static Balloon getPopupBalloon(
       MessageType msgType, String msg, boolean isAutoDisposable) {
     long timeInSeconds = 5000L; // 5 seconds
@@ -51,6 +79,12 @@ public class UIUtil {
     return balloonBuilder.createBalloon();
   }
 
+  /**
+   * Show error balloon.
+   *
+   * @param project the project
+   * @param errMsg the err msg
+   */
   public static void showErrorBalloon(Project project, String errMsg) {
     final StatusBar statusBar = WindowManager.getInstance().getStatusBar(project);
     Balloon errorBalloon = getPopupBalloon(MessageType.ERROR, errMsg, false);
@@ -58,6 +92,13 @@ public class UIUtil {
         RelativePoint.getCenterOf(statusBar.getComponent()), Balloon.Position.atRight);
   }
 
+  /**
+   * Show info balloon.
+   *
+   * @param project the project
+   * @param infoMsg the info msg
+   * @param isAutoDisposable the is auto disposable
+   */
   public static void showInfoBalloon(Project project, String infoMsg, boolean isAutoDisposable) {
     final StatusBar statusBar = WindowManager.getInstance().getStatusBar(project);
     Balloon errorBalloon = getPopupBalloon(MessageType.INFO, infoMsg, isAutoDisposable);
@@ -65,17 +106,33 @@ public class UIUtil {
         RelativePoint.getCenterOf(statusBar.getComponent()), Balloon.Position.atRight);
   }
 
+  /**
+   * Notify error.
+   *
+   * @param errorMsg the error msg
+   */
   public static void notifyError(String errorMsg) {
     Notifications.Bus.notify(
         new Notification("ddlab.gitpusher.id", "ERROR", errorMsg, NotificationType.ERROR));
   }
 
+  /**
+   * Notify info.
+   *
+   * @param infoMsg the info msg
+   */
   public static void notifyInfo(String infoMsg) {
     Notifications.Bus.notify(
         new Notification(
             "ddlab.gitpusher.id", "INFORMATION", infoMsg, NotificationType.INFORMATION));
   }
 
+  /**
+   * Is blank or null boolean.
+   *
+   * @param str the str
+   * @return the boolean
+   */
   public static boolean isBlankOrNull(String str) {
     return (str == null || str.trim().length() == 0);
   }

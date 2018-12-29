@@ -6,3 +6,5 @@ rootProject.name = 'ddlab-gitpusher-idea'
 println '********************************************************'
 println 'Recommended command to use  "gradlew clean build latest"'
 println '********************************************************'
+rootProject.name = 'ddlab-gitpusher-idea'
+

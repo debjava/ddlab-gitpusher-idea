@@ -40,50 +40,11 @@ patchPluginXml {
      """
 }
 
-//patchPluginXml {
-//    changeNotes """
-//      Add change notes here.<br>
-//      <strong>Strong text</strong>
-//      <em>most HTML tags may be used</em>"""
-//}
-
-
 clean {
-    println "---------- DELETING ----------->${rootDir}/latest"
     delete fileTree("${rootDir}/latest").matching {
         include "**/*.*"
     }
 }
-
-//copy {
-//    println "---------- COPYING FILE -----------"
-//    from 'build/distributions'
-//    into 'latest'
-//    include '**/*.*'
-//
-//}
-
-
-//task deploy (dependsOn: war) {
-//    doLast {
-//        println('I am the last BOSS ....')
-//    }
-//}
-
-
-//task copyToLatest(type: Copy) {
-//    println "---------- COPYING FILE -----------"
-//    from 'build/distributions'
-//    into 'latest'
-//    include '**/*.*'
-//}
-
-//task myTask(dependsOn: build, type: Copy) {
-//    println("~~~~~~~~~~~~~~~~~~~~~~")
-//    from 'build/distributions'
-//    into 'latest'
-//    include '**/*.*'
-//}
 
 task latest {
     doLast {

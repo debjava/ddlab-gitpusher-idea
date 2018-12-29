@@ -1,3 +1,6 @@
+/*
+ * Copyright 2018 Tornado Project from DDLAB Inc. or its subsidiaries. All Rights Reserved.
+ */
 package com.ddlab.tornado.dialog;
 
 import com.intellij.openapi.ui.ComboBox;
@@ -10,8 +13,18 @@ import java.awt.*;
 
 import static com.ddlab.tornado.common.CommonConstants.*;
 
+/**
+ * The type Ui common designer.
+ *
+ * @author Debadatta Mishra
+ */
 public class UICommonDesigner {
 
+  /**
+   * Create git type combo lbl.
+   *
+   * @param contentPanel the content panel
+   */
   public void createGitTypeComboLbl(JPanel contentPanel) {
     JBLabel lblSelectGitAccount = new JBLabel(ACT_TYPE_LBL_TXT);
     GridBagConstraints gbc_lblSelectGitAccount = new GridBagConstraints();
@@ -22,6 +35,12 @@ public class UICommonDesigner {
     contentPanel.add(lblSelectGitAccount, gbc_lblSelectGitAccount);
   }
 
+  /**
+   * Gets git type combo.
+   *
+   * @param contentPanel the content panel
+   * @return the git type combo
+   */
   public ComboBox<String> getGitTypeCombo(JPanel contentPanel) {
     ComboBox<String> gitActCombo = new ComboBox<String>(GIT_ACCOUNTS);
     GridBagConstraints gbc_comboBox = new GridBagConstraints();
@@ -33,6 +52,11 @@ public class UICommonDesigner {
     return gitActCombo;
   }
 
+  /**
+   * Create user name lbl.
+   *
+   * @param contentPanel the content panel
+   */
   public void createUserNameLbl(JPanel contentPanel) {
     JBLabel lblUsername = new JBLabel(USER_NAME_TEXT);
     GridBagConstraints gbc_lblUsername = new GridBagConstraints();
@@ -43,6 +67,12 @@ public class UICommonDesigner {
     contentPanel.add(lblUsername, gbc_lblUsername);
   }
 
+  /**
+   * Gets user name text.
+   *
+   * @param contentPanel the content panel
+   * @return the user name text
+   */
   public JBTextField getUserNameText(JPanel contentPanel) {
     JBTextField userNameTxt = new JBTextField();
     GridBagConstraints gbc_textField = new GridBagConstraints();
@@ -55,6 +85,11 @@ public class UICommonDesigner {
     return userNameTxt;
   }
 
+  /**
+   * Create password lbl.
+   *
+   * @param contentPanel the content panel
+   */
   public void createPasswordLbl(JPanel contentPanel) {
     JBLabel lblPassword = new JBLabel(PWD_LBL_TXT);
     GridBagConstraints gbc_lblPassword = new GridBagConstraints();
@@ -65,6 +100,12 @@ public class UICommonDesigner {
     contentPanel.add(lblPassword, gbc_lblPassword);
   }
 
+  /**
+   * Gets passwordtext.
+   *
+   * @param contentPanel the content panel
+   * @return the passwordtext
+   */
   public JBPasswordField getPasswordtext(JPanel contentPanel) {
     JBPasswordField passwordField = new JBPasswordField();
     GridBagConstraints gbc_passwordField = new GridBagConstraints();
@@ -76,7 +117,14 @@ public class UICommonDesigner {
     return passwordField;
   }
 
-  public JButton getTestAndShowBtn(JPanel contentPanel,String btnText) {
+  /**
+   * Gets test and show btn.
+   *
+   * @param contentPanel the content panel
+   * @param btnText the btn text
+   * @return the test and show btn
+   */
+  public JButton getTestAndShowBtn(JPanel contentPanel, String btnText) {
     JButton btnTestAndShow = new JButton(btnText);
     GridBagConstraints gbc_btnTestAndShow = new GridBagConstraints();
     gbc_btnTestAndShow.anchor = GridBagConstraints.EAST;
@@ -87,6 +135,12 @@ public class UICommonDesigner {
     return btnTestAndShow;
   }
 
+  /**
+   * Gets populate combo.
+   *
+   * @param contentPanel the content panel
+   * @return the populate combo
+   */
   public ComboBox<String> getPopulateCombo(JPanel contentPanel) {
     ComboBox<String> snippetCombo = new ComboBox<String>();
     GridBagConstraints gbc_comboBox_1 = new GridBagConstraints();
@@ -98,6 +152,12 @@ public class UICommonDesigner {
     return snippetCombo;
   }
 
+  /**
+   * Create desc txt lbl.
+   *
+   * @param contentPanel the content panel
+   * @param descText the desc text
+   */
   public void createDescTxtLbl(JPanel contentPanel, String descText) {
     JLabel lblProvideABrief = new JLabel(descText);
     GridBagConstraints gbc_lblProvideABrief = new GridBagConstraints();
@@ -109,6 +169,12 @@ public class UICommonDesigner {
     contentPanel.add(lblProvideABrief, gbc_lblProvideABrief);
   }
 
+  /**
+   * Gets desc txt area.
+   *
+   * @param contentPanel the content panel
+   * @return the desc txt area
+   */
   public JTextArea getDescTxtArea(JPanel contentPanel) {
     JTextArea descTxtArea = new JTextArea(3, 2);
     descTxtArea.setText("");

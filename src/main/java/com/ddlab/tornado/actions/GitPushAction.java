@@ -1,3 +1,6 @@
+/*
+ * Copyright 2018 Tornado Project from DDLAB Inc. or its subsidiaries. All Rights Reserved.
+ */
 package com.ddlab.tornado.actions;
 
 import com.ddlab.tornado.dialog.GitPushDialog;
@@ -15,31 +18,43 @@ import static com.ddlab.tornado.common.CommonConstants.PROJECT_MENU_DESC;
 import static com.ddlab.tornado.common.CommonConstants.PROJECT_MENU_TXT;
 import static com.ddlab.tornado.common.PluginIcons.GIT_PUSH_ACTION_IMG;
 
+/**
+ * The type Git push action.
+ *
+ * @author Debadatta Mishra
+ */
 public class GitPushAction extends AnAction {
 
+  /** Instantiates a new Git push action. */
   public GitPushAction() {
     super(PROJECT_MENU_TXT, PROJECT_MENU_DESC, GIT_PUSH_ACTION_IMG);
   }
 
+  /**
+   * Method used perform an action upon clicking on a menu.
+   *
+   * @param anActionEvent
+   */
   @Override
   public void actionPerformed(AnActionEvent anActionEvent) {
     Project project = anActionEvent.getData(PlatformDataKeys.PROJECT);
     VirtualFile virtualFile = anActionEvent.getData(CommonDataKeys.VIRTUAL_FILE);
     File selectedFile = new File(virtualFile.getPath());
 
-    GitPushDialog gitPushDialog = new GitPushDialog(project,selectedFile, true);
+    GitPushDialog gitPushDialog = new GitPushDialog(project, selectedFile, true);
     gitPushDialog.show();
     if (gitPushDialog.getExitCode() != DialogWrapper.OK_EXIT_CODE) {
       gitPushDialog.getExitCode();
     }
   }
 
+  /**
+   * Method used to enable or disable menu based upon conditions.
+   *
+   * @param e
+   */
   @Override
   public void update(AnActionEvent e) {
-    //        VirtualFile virtualFile1 = e.getData(CommonDataKeys.VIRTUAL_FILE);
-    //      PlatformDataKeys.
-    //    Project virtualFile = e.getData(CommonDataKeys.PROJECT);
-    //    Project virtualFile = e.getData(PlatformDataKeys.PROJECT);
     VirtualFile virtualFile = e.getData(CommonDataKeys.VIRTUAL_FILE);
     System.out.println("Now virtualFile :::" + virtualFile);
     File filePath = new File(virtualFile.getPath());

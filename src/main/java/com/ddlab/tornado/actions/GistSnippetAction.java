@@ -1,3 +1,6 @@
+/*
+ * Copyright 2018 Tornado Project from DDLAB Inc. or its subsidiaries. All Rights Reserved.
+ */
 package com.ddlab.tornado.actions;
 
 import com.ddlab.tornado.dialog.GistSnippetDialog;
@@ -15,12 +18,23 @@ import static com.ddlab.tornado.common.CommonConstants.CODE_MENU_DESC;
 import static com.ddlab.tornado.common.CommonConstants.CODE_MENU_TXT;
 import static com.ddlab.tornado.common.PluginIcons.GIT_SNIPPET_ACTION_IMG;
 
+/**
+ * The type Gist snippet action.
+ *
+ * @author Debadatta Mishra
+ */
 public class GistSnippetAction extends AnAction {
 
+  /** Instantiates a new Gist snippet action. */
   public GistSnippetAction() {
     super(CODE_MENU_TXT, CODE_MENU_DESC, GIT_SNIPPET_ACTION_IMG);
   }
 
+  /**
+   * Method used to perform an action upon click.
+   *
+   * @param event
+   */
   @Override
   public void actionPerformed(AnActionEvent event) {
     Project project = event.getData(PlatformDataKeys.PROJECT);
@@ -34,6 +48,11 @@ public class GistSnippetAction extends AnAction {
     }
   }
 
+  /**
+   * Method used enable disable menu based upon the condition.
+   *
+   * @param e
+   */
   @Override
   public void update(AnActionEvent e) {
     VirtualFile virtualFile = e.getData(CommonDataKeys.VIRTUAL_FILE);

@@ -1,3 +1,6 @@
+/*
+ * Copyright 2018 Tornado Project from DDLAB Inc. or its subsidiaries. All Rights Reserved.
+ */
 package com.ddlab.tornado.dialog;
 
 import com.ddlab.tornado.common.UIUtil;
@@ -18,6 +21,11 @@ import java.io.File;
 
 import static com.ddlab.tornado.common.CommonConstants.*;
 
+/**
+ * The type Git push dialog.
+ *
+ * @author Debadatta Mishra
+ */
 public class GitPushDialog extends DialogWrapper {
 
   private ComboBox<String> gitActCombo;
@@ -30,6 +38,13 @@ public class GitPushDialog extends DialogWrapper {
   private Project project;
   private File selectedRepo;
 
+  /**
+   * Instantiates a new Git push dialog.
+   *
+   * @param project the project
+   * @param selectedRepo the selected repo
+   * @param canBeParent the can be parent
+   */
   public GitPushDialog(@Nullable Project project, File selectedRepo, boolean canBeParent) {
     super(project, canBeParent);
     setTitle(DLG_TITLE_TXT);
@@ -40,6 +55,11 @@ public class GitPushDialog extends DialogWrapper {
     init();
   }
 
+  /**
+   * Creates Panel at the center
+   *
+   * @return
+   */
   @Nullable
   @Override
   protected JComponent createCenterPanel() {
@@ -54,27 +74,48 @@ public class GitPushDialog extends DialogWrapper {
     return contentPanel;
   }
 
+  /**
+   * Create Git account selection Combo
+   *
+   * @param contentPanel
+   */
   private void createGitTypeCombo(JPanel contentPanel) {
     uiDesinger.createGitTypeComboLbl(contentPanel);
     gitActCombo = uiDesinger.getGitTypeCombo(contentPanel);
   }
 
+  /**
+   * Creates a text field user name
+   *
+   * @param contentPanel
+   */
   private void createUserNameTxt(JPanel contentPanel) {
     uiDesinger.createUserNameLbl(contentPanel);
     userNameTxt = uiDesinger.getUserNameText(contentPanel);
   }
 
+  /**
+   * Creates a text field for password
+   *
+   * @param contentPanel
+   */
   private void createPasswordTxt(JPanel contentPanel) {
     uiDesinger.createPasswordLbl(contentPanel);
     passwordField = uiDesinger.getPasswordtext(contentPanel);
   }
 
+  /**
+   * Create a combo box to populate the existing repos
+   *
+   * @param contentPanel
+   */
   private void createPopulateCombo(JPanel contentPanel) {
     repoBtnTestAndShow = uiDesinger.getTestAndShowBtn(contentPanel, REPO_BTN_TXT);
     repoCombo = uiDesinger.getPopulateCombo(contentPanel);
     addTestBtnActionListener();
   }
 
+  /** Listener for test button */
   private void addTestBtnActionListener() {
     repoBtnTestAndShow.addActionListener(
         new ActionListener() {
@@ -87,11 +128,17 @@ public class GitPushDialog extends DialogWrapper {
         });
   }
 
+  /** Method to populate the repos */
   private void populateRepos() {
     repoCombo.removeAllItems();
     new RepoExecutor(this).fetchRepos();
   }
 
+  /**
+   * Check whether credentials are right
+   *
+   * @return
+   */
   private boolean isCredentialValid() {
     boolean validFlag = false;
     String userName = userNameTxt.getText();
@@ -107,11 +154,21 @@ public class GitPushDialog extends DialogWrapper {
     return validFlag;
   }
 
+  /**
+   * Create a text area for description
+   *
+   * @param contentPanel
+   */
   private void createDescTxt(JPanel contentPanel) {
     uiDesinger.createDescTxtLbl(contentPanel, READ_ME_INFO_TXT);
     readMeTxtArea = uiDesinger.getDescTxtArea(contentPanel);
   }
 
+  /**
+   * Method to validate the inputs
+   *
+   * @return
+   */
   @Nullable
   @Override
   protected ValidationInfo doValidate() {
@@ -127,12 +184,18 @@ public class GitPushDialog extends DialogWrapper {
     return validationInfo;
   }
 
+  /** Method to perform action on pressing Ok button */
   @Override
   protected void doOKAction() {
     close(1);
     new RepoExecutor(this).createRepo();
   }
 
+  /**
+   * Show info message.
+   *
+   * @param infoMsg the info msg
+   */
   public void showInfoMessage(String infoMsg) {
     SwingUtilities.invokeLater(
         new Runnable() {
@@ -142,6 +205,11 @@ public class GitPushDialog extends DialogWrapper {
         });
   }
 
+  /**
+   * Show error message.
+   *
+   * @param errorMsg the error msg
+   */
   public void showErrorMessage(String errorMsg) {
     SwingUtilities.invokeLater(
         new Runnable() {
@@ -153,34 +221,74 @@ public class GitPushDialog extends DialogWrapper {
         });
   }
 
+  /**
+   * Gets git act combo.
+   *
+   * @return the git act combo
+   */
   public ComboBox<String> getGitActCombo() {
     return gitActCombo;
   }
 
+  /**
+   * Gets user name txt.
+   *
+   * @return the user name txt
+   */
   public JBTextField getUserNameTxt() {
     return userNameTxt;
   }
 
+  /**
+   * Gets password field.
+   *
+   * @return the password field
+   */
   public JBPasswordField getPasswordField() {
     return passwordField;
   }
 
+  /**
+   * Gets repo btn test and show.
+   *
+   * @return the repo btn test and show
+   */
   public JButton getRepoBtnTestAndShow() {
     return repoBtnTestAndShow;
   }
 
+  /**
+   * Gets repo combo.
+   *
+   * @return the repo combo
+   */
   public ComboBox getRepoCombo() {
     return repoCombo;
   }
 
+  /**
+   * Gets read me txt area.
+   *
+   * @return the read me txt area
+   */
   public JTextArea getReadMeTxtArea() {
     return readMeTxtArea;
   }
 
+  /**
+   * Gets project.
+   *
+   * @return the project
+   */
   public Project getProject() {
     return project;
   }
 
+  /**
+   * Gets selected repo.
+   *
+   * @return the selected repo
+   */
   public File getSelectedRepo() {
     return selectedRepo;
   }
