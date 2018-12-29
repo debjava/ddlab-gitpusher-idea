@@ -44,7 +44,7 @@ The following framework/s and tool/s have been used in this current sample appli
 
 How to use it ?
 ===============
-Please Download [<img src="./images/download32.png">](https://github.com/debjava/ddlab.gitpusher/raw/master/download/ddlab.gitpusher.updatesite-1.0.0.zip) from the latest download directory.
+Please Download [<img src="./images/download32.png">](https://github.com/debjava/ddlab-gitpusher-idea/raw/master/latest/ddlab-gitpusher-idea-1.0.0.zip) from the latest download directory.
 
 Download the zip file and install as in File -> Settings -> Plugins.
 
