@@ -1,3 +1,6 @@
+/*
+ * Copyright 2018 Tornado Project from DDLAB Inc. or its subsidiaries. All Rights Reserved.
+ */
 package com.ddlab.tornado.executors;
 
 import com.ddlab.gitpusher.core.GitType;
@@ -16,11 +19,26 @@ import java.util.concurrent.TimeUnit;
 import static com.ddlab.tornado.common.CommonConstants.GIT_ACCOUNTS;
 import static com.ddlab.tornado.common.CommonConstants.SUCCESSFUL_GIST_CREATE_MSG;
 
+/**
+ * The type Gist snippet create task.
+ *
+ * @author Debadatta Mishra
+ */
 public class GistSnippetCreateTask extends Task.Backgroundable {
+  /** UserAccount object */
   private UserAccount userAccount;
+  /** Combox box selected git account type */
   private String selectedGitType;
+  /** Gist Snippet creation dialog */
   private GistSnippetDialog snippetDialog;
 
+  /**
+   * Instantiates a new Gist snippet create task.
+   *
+   * @param title the title
+   * @param canBeCancelled the can be cancelled
+   * @param snippetDialog the snippet dialog
+   */
   public GistSnippetCreateTask(
       @Nls(capitalization = Nls.Capitalization.Title) @NotNull String title,
       boolean canBeCancelled,
@@ -34,6 +52,11 @@ public class GistSnippetCreateTask extends Task.Backgroundable {
     this.selectedGitType = GIT_ACCOUNTS[snippetDialog.getGitActCombo().getSelectedIndex()];
   }
 
+  /**
+   * Thread's default run method and provides a basic progress bar for background service.
+   *
+   * @param indicator
+   */
   @Override
   public void run(@NotNull ProgressIndicator indicator) {
     indicator.setFraction(0.1);

@@ -1,3 +1,6 @@
+/*
+ * Copyright 2018 Tornado Project from DDLAB Inc. or its subsidiaries. All Rights Reserved.
+ */
 package com.ddlab.tornado.executors;
 
 import com.ddlab.gitpusher.core.GitType;
@@ -16,12 +19,26 @@ import java.util.concurrent.TimeUnit;
 import static com.ddlab.tornado.common.CommonConstants.GIT_ACCOUNTS;
 import static com.ddlab.tornado.common.CommonConstants.NO_REPO_AVL_MSG;
 
+/**
+ * The type Repo fetch task.
+ *
+ * @author Debadatta Mishra
+ */
 public class RepoFetchTask extends Task.Backgroundable {
+  /** UserAccount object */
   private UserAccount userAccount;
+  /** Combox box selected git account type */
   private String selectedGitType;
-
+  /** Gist Snippet creation dialog */
   private GitPushDialog gitPushDialog;
 
+  /**
+   * Instantiates a new Repo fetch task.
+   *
+   * @param title the title
+   * @param canBeCancelled the can be cancelled
+   * @param gitPushDialog the git push dialog
+   */
   public RepoFetchTask(
       @Nls(capitalization = Nls.Capitalization.Title) @NotNull String title,
       boolean canBeCancelled,
@@ -35,6 +52,12 @@ public class RepoFetchTask extends Task.Backgroundable {
     this.selectedGitType = GIT_ACCOUNTS[gitPushDialog.getGitActCombo().getSelectedIndex()];
   }
 
+  /**
+   * Thread's default run method to process operations in background and provides a basic progress
+   * info.
+   *
+   * @param indicator
+   */
   @Override
   public void run(@NotNull ProgressIndicator indicator) {
     indicator.setFraction(0.1);

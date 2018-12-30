@@ -157,6 +157,7 @@ public class BitBucketHandlerImpl implements IGitHandler {
   @Override
   public void createHostedRepo(String repoName) throws Exception {
     String loginUser = getUserName();
+    System.out.println("Login UserName : " + loginUser);
     String jsonRepo = new BitbucketHostedRepo().toJson();
     String uri = BITBUCKET_API_URI + BITBUCKET_CREATE_API_URI;
     MessageFormat formatter = new MessageFormat(uri);
@@ -165,11 +166,16 @@ public class BitBucketHandlerImpl implements IGitHandler {
     StringEntity jsonBodyRequest = new StringEntity(jsonRepo);
     httpPost.setEntity(jsonBodyRequest);
     httpPost.setHeader("Content-type", "application/json");
+    IErrorResponseParser<String, String> iErrorResponseParser = new BitBucketRepoErrorParserImpl();
     try {
       GitResponse gitResponse = HTTPUtil.getHttpGetOrPostResponse(httpPost);
-      if (gitResponse.getStatusCode().equals("401"))
+      if (gitResponse.getStatusCode().equals("400")) {
+        String errMsg = iErrorResponseParser.parseError(gitResponse.getResponseText());
+        System.out.println("Err msg : " + errMsg);
+        throw new GenericGitPushException(errMsg);
+      } else if (gitResponse.getStatusCode().equals("401"))
         throw new GenericGitPushException(GENERIC_LOGIN_ERR_MSG);
-      if (!gitResponse.getStatusCode().equals("200"))
+      else if (!gitResponse.getStatusCode().equals("200"))
         throw new GenericGitPushException(BITBUCKET_REPO_ERR_MSG);
     } catch (GenericGitPushException e) {
       throw e;

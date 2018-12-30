@@ -211,6 +211,7 @@ public class GitPushDialog extends DialogWrapper {
    * @param errorMsg the error msg
    */
   public void showErrorMessage(String errorMsg) {
+    System.out.println("Error Message : "+errorMsg);
     SwingUtilities.invokeLater(
         new Runnable() {
           public void run() {

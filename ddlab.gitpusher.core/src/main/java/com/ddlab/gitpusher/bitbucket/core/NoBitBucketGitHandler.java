@@ -54,6 +54,7 @@ public class NoBitBucketGitHandler implements NoGitHandler {
     try {
       System.out.println("Repo name : " + repoName);
       gitHandler.createHostedRepo(repoName);
+      System.out.println("Repo created in bitbucket successfully...");
       tempCloneDir = new File(HOME_GIT_PATH);
       // clone project
       gitHandler.clone(repoName, tempCloneDir);
@@ -62,6 +63,17 @@ public class NoBitBucketGitHandler implements NoGitHandler {
     } catch (Exception e) {
       throw e;
     } finally {
+      deleteSilently(tempCloneDir);
+    }
+  }
+
+  /**
+   * Delete a folder silently
+   *
+   * @param tempCloneDir
+   */
+  private void deleteSilently(File tempCloneDir) {
+    if (tempCloneDir != null && tempCloneDir.exists()) {
       String dotGitDir = tempCloneDir.getAbsolutePath() + File.separator + ".git";
       FileUtils.deleteQuietly(new File(dotGitDir));
     }

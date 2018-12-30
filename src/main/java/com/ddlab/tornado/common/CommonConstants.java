@@ -89,7 +89,7 @@ public class CommonConstants {
   public static final String SUCCESSFUL_GIST_CREATE_MSG = "Snippet created successfully...";
 
   /** The constant SUCCESSFUL_REPO_CREATE_MSG. */
-  public static final String SUCCESSFUL_REPO_CREATE_MSG = "Repositoryt created successfully...";
+  public static final String SUCCESSFUL_REPO_CREATE_MSG = "Repository updated successfully...";
 
   /** The constant GEN_GITIGNORE_MSG. */
   public static final String GEN_GITIGNORE_MSG = "Generating .gitignore file";
