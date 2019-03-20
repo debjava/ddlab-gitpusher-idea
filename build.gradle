@@ -4,12 +4,12 @@ plugins {
 }
 
 group 'ddlab-gitpusher-idea'
-version '1.0.0'
+version '1.0.1'
 sourceCompatibility = 1.8
 
 allprojects {
     group 'ddlab-gitpusher-idea'
-    version '1.0.0'
+    version '1.0.1'
     sourceCompatibility = 1.8
 
     apply plugin: "java"
@@ -37,6 +37,10 @@ patchPluginXml {
     changeNotes """
         <p>1.0.0</p>
         <li>Initial version added for IntelliJ IDEA 2018.2.* </li>
+        <p>1.0.1</p>
+        <li>Hot fixes for making click in non-project area</li>
+        <li>Changes in .gitignore for adding jar files</li>
+        <li>Enhancement to share the code from editor </li>
      """
 }
 
@@ -56,3 +60,4 @@ task latest {
         }
     }
 }
+

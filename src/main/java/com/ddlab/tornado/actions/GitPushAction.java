@@ -55,11 +55,14 @@ public class GitPushAction extends AnAction {
    */
   @Override
   public void update(AnActionEvent e) {
+    e.getPresentation().setVisible(false);
+    e.getPresentation().setEnabled(false);
     VirtualFile virtualFile = e.getData(CommonDataKeys.VIRTUAL_FILE);
-//    System.out.println("Now virtualFile :::" + virtualFile);
-    File filePath = new File(virtualFile.getPath());
-    if (filePath.isDirectory()) {
-      e.getPresentation().setEnabledAndVisible(true);
-    } else e.getPresentation().setEnabledAndVisible(false);
+    if (virtualFile != null) {
+      File filePath = new File(virtualFile.getPath());
+      if (filePath.isDirectory()) {
+        e.getPresentation().setEnabledAndVisible(true);
+      } else e.getPresentation().setEnabledAndVisible(false);
+    }
   }
 }

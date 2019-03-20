@@ -26,6 +26,10 @@
         <![CDATA[
             <p>1.0.0</p>
             <li>Initial version added for IntelliJ IDEA 2018.2.* </li>
+            <p>1.0.1</p>
+            <li>Hot fixes for making click in non-project area</li>
+            <li>Changes in .gitignore for adding jar files</li>
+            <li>Enhancement to share the code from editor </li>
         ]]>
     </change-notes>
 
@@ -42,7 +46,9 @@
 
         <action id="createGistSnippetId" class="com.ddlab.tornado.actions.GistSnippetAction">
             <add-to-group group-id="ProjectViewPopupMenu" anchor="first"/>
+            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
         </action>
+
     </actions>
 
 </idea-plugin>

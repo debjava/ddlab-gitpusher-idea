@@ -68,7 +68,6 @@ local.properties
 build
 .gradle/
 build/
-**/*.jar
 
 # Maven specific
 

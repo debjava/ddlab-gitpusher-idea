@@ -55,10 +55,14 @@ public class GistSnippetAction extends AnAction {
    */
   @Override
   public void update(AnActionEvent e) {
+    e.getPresentation().setVisible(false);
+    e.getPresentation().setEnabled(false);
     VirtualFile virtualFile = e.getData(CommonDataKeys.VIRTUAL_FILE);
-    File filePath = new File(virtualFile.getPath());
+    if (virtualFile != null) {
+      File filePath = new File(virtualFile.getPath());
 
-    if (!filePath.isDirectory()) e.getPresentation().setEnabledAndVisible(true);
-    else e.getPresentation().setEnabledAndVisible(false);
+      if (!filePath.isDirectory()) e.getPresentation().setEnabledAndVisible(true);
+      else e.getPresentation().setEnabledAndVisible(false);
+    }
   }
 }
