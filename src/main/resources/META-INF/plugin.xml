@@ -30,10 +30,15 @@
             <li>Hot fixes for making click in non-project area</li>
             <li>Changes in .gitignore for adding jar files</li>
             <li>Enhancement to share the code from editor </li>
+            <p>1.0.2</p>
+            <li>Added support for other products like Pycharm, Webstorm etc</li>
         ]]>
     </change-notes>
 
     <idea-version since-build="173.0"/>
+
+    <!-- Added support for all types of products like pycharm, rubymine -->
+    <depends>com.intellij.modules.lang</depends>
 
     <extensions defaultExtensionNs="com.intellij">
 
